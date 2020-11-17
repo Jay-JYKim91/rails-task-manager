@@ -1,26 +1,24 @@
-  <div class="container my-3">
-    <h1>My Tasks</h1>
-  </div>
+<div class="container my-3">
+  <h1>My Tasks</h1>
+</div>
 
-  <div class="container list-decoration-none">
-    <ul>
-      <% @tasks.each do |task| %>
-       <% if task.completed %>
-          <input type="checkbox" checked disabled>
-        <% else %>
-          <input type="checkbox" disabled>
-        <% end %>
-        <%= link_to task.title, task_path(task) %>
-        ·
-        <%= link_to "🗑", destroy_path(task), method: :delete, data: {confirm: "Confirm to delete?"} %>
-        <br>
+<div class="container list-decoration-none">
+  <ul id="tasks">
+    <% @tasks.each do |task| %>
+     <% if task.completed %>
+        <input type="checkbox" checked disabled>
+      <% else %>
+        <input type="checkbox" disabled>
       <% end %>
-  </ul>
-  </div>
+      <%= link_to task.title, task_path(task) %>
+      ·
+      <%= link_to "🗑", destroy_path(task), method: :delete, data: {confirm: "Confirm to delete?"} %>
+      <br>
+    <% end %>
+</ul>
+</div>
 
-  <div class="container">
-    <%= link_to "➕ Add a new task", tasks_new_path %>
-  </div>
-
+<div class="container">
+  <%= link_to "➕ Add a new task", tasks_new_path %>
 </div>
 
